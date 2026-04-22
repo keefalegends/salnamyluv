@@ -9,13 +9,6 @@
 └── README.md
 ```
 
-## ✏️ Kustomisasi
-
-| File | Yang Perlu Diganti |
-|---|---|
-| `index.html` | Nama pacar, isi surat, quotes, tagline |
-| `script.js` | `START_DATE` — tanggal jadian |
-
 ## 🛠️ Tech Stack
 
 HTML · CSS · JavaScript — no framework, no dependencies.
