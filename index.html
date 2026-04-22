@@ -7,8 +7,19 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
 </head>
-<audio id="bgMusic" src="https://youtu.be/LnQ9_uTSyBQ?si=pnnY47Ygkwln_iCb" loop autoplay></audio>
 <body>
+
+  <!-- ====== AUDIO ====== -->
+  <!-- ✏️ GANTI "lagu.mp3" dengan nama file mp3 kamu (taruh 1 folder) -->
+  <audio id="bgMusic" src="lagu.mp3" loop></audio>
+
+  <!-- ====== FLOATING MUSIC BUTTON ====== -->
+  <div class="music-btn" id="musicBtn" title="Play / Pause musik">
+    <div class="music-icon" id="musicIcon">▶</div>
+    <div class="music-rings">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
 
   <!-- ====== SPLASH SCREEN ====== -->
   <div id="splash">
@@ -29,12 +40,10 @@
       <h1 class="hero-title">
         Untuk<br />
         <em class="name">
-          <!-- ✏️ GANTI NAMA PACAR DI SINI -->
           Salna Bilayuka Haritama
         </em>
       </h1>
       <p class="hero-sub">
-        <!-- ✏️ GANTI TAGLINE DI SINI -->
         yang selalu bikin hari-hariku jadi berwarna.
       </p>
       <button class="btn-scroll" id="btnScroll">
@@ -67,11 +76,8 @@
         </div>
         <div class="letter-body">
           <p class="letter-greeting">
-            <!-- ✏️ GANTI SAPAAN DI SINI -->
             Hei, kamu yang paling cantik... 💌
           </p>
-
-          <!-- ✏️ ISI SURAT DI SINI — BEBAS GANTI SEMUA PARAGRAF INI -->
           <p>
             Gak tau harus mulai dari mana, tapi aku cuma mau bilang... makasih
             udah ada. Terimakasih. Setiap pagi aku bangun dari tempat tidurku dan hal pertama yang
@@ -90,12 +96,9 @@
             Dan satu hal yang pasti — aku gak akan bosen bilang ini:<br />
             <strong>aku love you, yesterday, today, and forever.</strong>
           </p>
-          <!-- ✏️ AKHIR ISIAN SURAT -->
-
           <div class="letter-signature">
             <div class="sig-line"></div>
             <span class="sig-name">
-              <!-- ✏️ GANTI NAMA KAMU DI SINI -->
               Keefa Youra Pambudi
             </span>
           </div>
@@ -109,8 +112,6 @@
     <div class="quotes-inner">
       <h2 class="quotes-heading">hal-hal yang selalu aku rasakan</h2>
       <div class="quotes-track" id="quotesTrack">
-
-        <!-- ✏️ GANTI / TAMBAH QUOTES DI SINI -->
         <div class="quote-card active">
           <div class="qc-num">01</div>
           <blockquote>
@@ -137,8 +138,6 @@
             pernah nyasar."
           </blockquote>
         </div>
-        <!-- ✏️ AKHIR QUOTES -->
-
       </div>
       <div class="quotes-nav">
         <button class="qnav" id="qPrev">←</button>
@@ -174,7 +173,6 @@
         </div>
       </div>
       <p class="cd-sub">
-        <!-- ✏️ GANTI TANGGAL JADIAN (format: DD MMMM YYYY) -->
         sejak <strong id="cdStartDate">17 Februari 2026</strong>
       </p>
     </div>
@@ -185,7 +183,6 @@
     <div class="closing-inner">
       <div class="closing-heart-big" id="bigHeart">♡</div>
       <h2 class="closing-title">
-        <!-- ✏️ GANTI NAMA PACAR DI SINI JUGA -->
         love you, Salna
       </h2>
       <p class="closing-sub">selamanya dan satu hari lagi.</p>

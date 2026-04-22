@@ -6,7 +6,7 @@
 // ✏️  EDIT TANGGAL JADIAN DI SINI
 // Format: new Date('YYYY-MM-DD')
 // =============================================
-const START_DATE = new Date('2026-02-017');
+const START_DATE = new Date('2026-02-17'); // FIX: was '2026-02-017'
 
 // =============================================
 // SPLASH SCREEN
@@ -66,7 +66,6 @@ function startPetals() {
       ctx.rotate(this.rot);
       ctx.globalAlpha = this.alpha;
       ctx.beginPath();
-      // heart-ish petal shape
       const s = this.r;
       ctx.moveTo(0, -s * 0.5);
       ctx.bezierCurveTo( s,  -s,   s * 1.5,  s * 0.5,  0,  s);
@@ -88,6 +87,36 @@ function startPetals() {
 }
 
 // =============================================
+// FLOATING MUSIC BUTTON
+// =============================================
+const music     = document.getElementById('bgMusic');
+const musicBtn  = document.getElementById('musicBtn');
+const musicIcon = document.getElementById('musicIcon');
+let   isPlaying = false;
+
+musicBtn.addEventListener('click', toggleMusic);
+
+// Auto-play on first user interaction anywhere
+document.addEventListener('click', () => {
+  if (!isPlaying) toggleMusic();
+}, { once: true });
+
+function toggleMusic() {
+  if (isPlaying) {
+    music.pause();
+    musicIcon.textContent = '▶';
+    musicBtn.classList.remove('playing');
+  } else {
+    music.play().catch(() => {
+      // file not found or format not supported — silent fail
+    });
+    musicIcon.textContent = '❚❚';
+    musicBtn.classList.add('playing');
+  }
+  isPlaying = !isPlaying;
+}
+
+// =============================================
 // SCROLL TO LETTER
 // =============================================
 document.getElementById('btnScroll').addEventListener('click', () => {
@@ -97,11 +126,10 @@ document.getElementById('btnScroll').addEventListener('click', () => {
 // =============================================
 // ENVELOPE OPEN → LETTER REVEAL
 // =============================================
-const envelope   = document.getElementById('envelope');
+const envelope    = document.getElementById('envelope');
 const letterPaper = document.getElementById('letterPaper');
-let letterOpened = false;
+let   letterOpened = false;
 
-// Set today's date on the letter
 const months = ['Januari','Februari','Maret','April','Mei','Juni',
                  'Juli','Agustus','September','Oktober','November','Desember'];
 const now = new Date();
@@ -127,12 +155,11 @@ envelope.addEventListener('click', () => {
 // =============================================
 // QUOTES CAROUSEL
 // =============================================
-const cards    = document.querySelectorAll('.quote-card');
-const qdots    = document.getElementById('qdots');
-let current    = 0;
-let autoTimer  = null;
+const cards   = document.querySelectorAll('.quote-card');
+const qdots   = document.getElementById('qdots');
+let current   = 0;
+let autoTimer = null;
 
-// Build dots
 cards.forEach((_, i) => {
   const dot = document.createElement('div');
   dot.className = 'qdot' + (i === 0 ? ' active' : '');
@@ -144,13 +171,10 @@ function goTo(idx, dir = 1) {
   if (idx === current) return;
   const prev = current;
   current = (idx + cards.length) % cards.length;
-
   cards[prev].classList.remove('active');
   cards[prev].classList.add(dir > 0 ? 'exit-left' : 'exit-right');
   setTimeout(() => cards[prev].classList.remove('exit-left', 'exit-right'), 600);
-
   cards[current].classList.add('active');
-
   document.querySelectorAll('.qdot').forEach((d, i) =>
     d.classList.toggle('active', i === current)
   );
@@ -158,14 +182,8 @@ function goTo(idx, dir = 1) {
 
 function nextQuote(dir = 1) { goTo(current + dir, dir); }
 
-document.getElementById('qNext').addEventListener('click', () => {
-  nextQuote(1);
-  resetAuto();
-});
-document.getElementById('qPrev').addEventListener('click', () => {
-  nextQuote(-1);
-  resetAuto();
-});
+document.getElementById('qNext').addEventListener('click', () => { nextQuote(1);  resetAuto(); });
+document.getElementById('qPrev').addEventListener('click', () => { nextQuote(-1); resetAuto(); });
 
 function resetAuto() {
   clearInterval(autoTimer);
@@ -180,7 +198,7 @@ function pad(n, len = 2) { return String(n).padStart(len, '0'); }
 
 function updateCountdown() {
   const diff = Date.now() - START_DATE.getTime();
-  if (diff < 0) { return; }
+  if (diff < 0) return;
 
   const totalSecs = Math.floor(diff / 1000);
   const secs  = totalSecs % 60;
@@ -188,23 +206,17 @@ function updateCountdown() {
   const hours = Math.floor(totalSecs / 3600) % 24;
   const days  = Math.floor(totalSecs / 86400);
 
-  const elDays  = document.getElementById('cdDays');
-  const elHours = document.getElementById('cdHours');
-  const elMins  = document.getElementById('cdMins');
-  const elSecs  = document.getElementById('cdSecs');
+  document.getElementById('cdDays').textContent  = pad(days, 3);
+  document.getElementById('cdHours').textContent = pad(hours);
+  document.getElementById('cdMins').textContent  = pad(mins);
 
-  elDays.textContent  = pad(days, 3);
-  elHours.textContent = pad(hours);
-  elMins.textContent  = pad(mins);
-
-  // tick animation on seconds
+  const elSecs = document.getElementById('cdSecs');
   elSecs.textContent = pad(secs);
   elSecs.classList.remove('tick');
-  void elSecs.offsetWidth; // reflow
+  void elSecs.offsetWidth;
   elSecs.classList.add('tick');
   setTimeout(() => elSecs.classList.remove('tick'), 300);
 
-  // Set start date label
   document.getElementById('cdStartDate').textContent =
     `${START_DATE.getDate()} ${months[START_DATE.getMonth()]} ${START_DATE.getFullYear()}`;
 }
@@ -213,9 +225,9 @@ setInterval(updateCountdown, 1000);
 updateCountdown();
 
 // =============================================
-// CLOSING HEART — click for fireworks
+// CLOSING HEART — fireworks
 // =============================================
-const bigHeart   = document.getElementById('bigHeart');
+const bigHeart    = document.getElementById('bigHeart');
 const fwContainer = document.getElementById('fireworks');
 
 bigHeart.addEventListener('click', () => {
@@ -235,14 +247,11 @@ function launchFireworks() {
     p.className = 'fw-particle';
     const angle = (i / 40) * Math.PI * 2;
     const dist  = 80 + Math.random() * 140;
-    const tx    = Math.cos(angle) * dist;
-    const ty    = Math.sin(angle) * dist;
     p.style.cssText = `
-      left: ${cx}px;
-      top:  ${cy}px;
+      left: ${cx}px; top: ${cy}px;
       background: ${colors[Math.floor(Math.random() * colors.length)]};
-      --tx: ${tx}px;
-      --ty: ${ty}px;
+      --tx: ${Math.cos(angle) * dist}px;
+      --ty: ${Math.sin(angle) * dist}px;
       animation-duration: ${0.7 + Math.random() * 0.5}s;
     `;
     fwContainer.appendChild(p);
@@ -251,36 +260,26 @@ function launchFireworks() {
 }
 
 // =============================================
-// SCROLL REVEAL (Intersection Observer)
+// SCROLL REVEAL
 // =============================================
 const revealEls = document.querySelectorAll(
   '.hero-content, .letter-wrapper, .quotes-inner, .countdown-inner, .closing-inner'
 );
-
 revealEls.forEach(el => el.classList.add('reveal'));
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
   });
 }, { threshold: 0.15 });
-
 revealEls.forEach(el => observer.observe(el));
 
 // =============================================
-// PARALLAX subtle on hero bg text
+// PARALLAX HERO BG TEXT
 // =============================================
 const heroBgText = document.querySelector('.hero-bg-text');
 if (heroBgText) {
   window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    heroBgText.style.transform = `translate(-50%,calc(-50% + ${y * 0.25}px))`;
+    heroBgText.style.transform = `translate(-50%,calc(-50% + ${window.scrollY * 0.25}px))`;
   });
 }
-
-document.addEventListener('click', () => {
-  document.getElementById('bgMusic').play();
-}, { once: true });
