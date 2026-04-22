@@ -1,17 +1,5 @@
 # 💌 Surprise Website for Her
 
-Website kejutan romantis untuk pacar, dibuat dengan HTML, CSS, dan JavaScript vanilla.
-
-## ✨ Fitur
-
-- Splash screen dengan animasi jantung
-- Petal rain (hujan kelopak bunga) di background
-- Amplop interaktif yang bisa dibuka
-- Surat cinta dengan animasi reveal
-- Quotes carousel auto-play
-- Countdown timer sejak hari jadian
-- Fireworks saat klik hati di bagian akhir
-
 ## 📁 Struktur File
 
 ```
@@ -20,13 +8,6 @@ Website kejutan romantis untuk pacar, dibuat dengan HTML, CSS, dan JavaScript va
 ├── script.js    # Interaktivitas & logika
 └── README.md
 ```
-
-## 🚀 Cara Pakai
-
-1. Clone repo ini
-2. Edit bagian bertanda `✏️` di `index.html` (nama, surat, quotes)
-3. Ganti tanggal jadian di baris pertama `script.js`
-4. Buka `index.html` di browser — selesai!
 
 ## ✏️ Kustomisasi
 
