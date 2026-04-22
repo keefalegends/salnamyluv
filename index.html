@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untuk Kamu 💌</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ====== SPLASH SCREEN ====== -->
+  <div id="splash">
+    <div class="splash-content">
+      <div class="splash-heart">♡</div>
+      <p class="splash-sub">ada sesuatu untukmu...</p>
+    </div>
+  </div>
+
+  <!-- ====== PETALS CANVAS ====== -->
+  <canvas id="petals"></canvas>
+
+  <!-- ====== SECTION 1: HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-text">LOVE</div>
+    <div class="hero-content">
+      <span class="tag-line">✦ sebuah surat kecil ✦</span>
+      <h1 class="hero-title">
+        Untuk<br />
+        <em class="name">
+          <!-- ✏️ GANTI NAMA PACAR DI SINI -->
+          Salna Bilayuka Haritama
+        </em>
+      </h1>
+      <p class="hero-sub">
+        <!-- ✏️ GANTI TAGLINE DI SINI -->
+        yang selalu bikin hari-hariku jadi berwarna.
+      </p>
+      <button class="btn-scroll" id="btnScroll">
+        <span>buka suratnya</span>
+        <div class="btn-arrow">↓</div>
+      </button>
+    </div>
+    <div class="hero-deco">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+      <div class="deco-circle c3"></div>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 2: LETTER ====== -->
+  <section class="letter-section" id="letterSection">
+    <div class="letter-wrapper">
+      <div class="letter-envelope" id="envelope">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-heart">♡</div>
+          <p class="envelope-hint">klik untuk buka</p>
+        </div>
+      </div>
+
+      <div class="letter-paper" id="letterPaper">
+        <div class="letter-header">
+          <span class="letter-date" id="letterDate">hari ini</span>
+          <div class="letter-deco-line"></div>
+        </div>
+        <div class="letter-body">
+          <p class="letter-greeting">
+            <!-- ✏️ GANTI SAPAAN DI SINI -->
+            Hei, kamu yang paling cantik... 💌
+          </p>
+
+          <!-- ✏️ ISI SURAT DI SINI — BEBAS GANTI SEMUA PARAGRAF INI -->
+          <p>
+            Gak tau harus mulai dari mana, tapi aku cuma mau bilang... makasih
+            udah ada. Terimakasih. Setiap pagi aku bangun dari tempat tidurku dan hal pertama yang
+            kepikiran itu ialah kamu.
+          </p>
+          <p>
+            Kamu tuh kayak lagu yang gak bisa berhenti aku dengerin — tiap
+            diulang rasanya selalu beda, selalu ada hal baru yang bikin aku
+            senyum sendiri.
+          </p>
+          <p>
+            Mungkin aku gak selalu bisa ngomong langsung, tapi lewat sini aku
+            mau bilang: aku bersyukur banget punya kamu. Seriously.
+          </p>
+          <p>
+            Dan satu hal yang pasti — aku gak akan bosen bilang ini:<br />
+            <strong>aku love you, yesterday, today, and forever.</strong>
+          </p>
+          <!-- ✏️ AKHIR ISIAN SURAT -->
+
+          <div class="letter-signature">
+            <div class="sig-line"></div>
+            <span class="sig-name">
+              <!-- ✏️ GANTI NAMA KAMU DI SINI -->
+              Keefa Youra Pambudi
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 3: QUOTES CAROUSEL ====== -->
+  <section class="quotes-section" id="quotesSection">
+    <div class="quotes-inner">
+      <h2 class="quotes-heading">hal-hal yang selalu aku rasakan</h2>
+      <div class="quotes-track" id="quotesTrack">
+
+        <!-- ✏️ GANTI / TAMBAH QUOTES DI SINI -->
+        <div class="quote-card active">
+          <div class="qc-num">01</div>
+          <blockquote>
+            "Kamu itu bukan pelabuhan terakhir, kamu rumah. Dan aku selalu mau
+            pulang ke sana."
+          </blockquote>
+        </div>
+        <div class="quote-card">
+          <div class="qc-num">02</div>
+          <blockquote>
+            "aku bisa dengerin suara tawa kamu seharian tanpa bosen."
+          </blockquote>
+        </div>
+        <div class="quote-card">
+          <div class="qc-num">03</div>
+          <blockquote>
+            "Kalau bisa milih ulang, gue tetap milih kamu. Always."
+          </blockquote>
+        </div>
+        <div class="quote-card">
+          <div class="qc-num">04</div>
+          <blockquote>
+            "Matamu itu kayak bintang yang gw hafalin letaknya, biar gak
+            pernah nyasar."
+          </blockquote>
+        </div>
+        <!-- ✏️ AKHIR QUOTES -->
+
+      </div>
+      <div class="quotes-nav">
+        <button class="qnav" id="qPrev">←</button>
+        <div class="qdots" id="qdots"></div>
+        <button class="qnav" id="qNext">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 4: COUNTDOWN ====== -->
+  <section class="countdown-section" id="countdownSection">
+    <div class="countdown-inner">
+      <p class="cd-label">sudah berapa lama kita bersama</p>
+      <div class="cd-boxes">
+        <div class="cd-box">
+          <span class="cd-num" id="cdDays">000</span>
+          <span class="cd-unit">hari</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box">
+          <span class="cd-num" id="cdHours">00</span>
+          <span class="cd-unit">jam</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box">
+          <span class="cd-num" id="cdMins">00</span>
+          <span class="cd-unit">menit</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-box">
+          <span class="cd-num" id="cdSecs">00</span>
+          <span class="cd-unit">detik</span>
+        </div>
+      </div>
+      <p class="cd-sub">
+        <!-- ✏️ GANTI TANGGAL JADIAN (format: DD MMMM YYYY) -->
+        sejak <strong id="cdStartDate">17 Februari 2026</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 5: CLOSING ====== -->
+  <section class="closing-section" id="closingSection">
+    <div class="closing-inner">
+      <div class="closing-heart-big" id="bigHeart">♡</div>
+      <h2 class="closing-title">
+        <!-- ✏️ GANTI NAMA PACAR DI SINI JUGA -->
+        love you, Salna
+      </h2>
+      <p class="closing-sub">selamanya dan satu hari lagi.</p>
+      <div class="fireworks" id="fireworks"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
