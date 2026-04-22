@@ -280,3 +280,7 @@ if (heroBgText) {
     heroBgText.style.transform = `translate(-50%,calc(-50% + ${y * 0.25}px))`;
   });
 }
+
+document.addEventListener('click', () => {
+  document.getElementById('bgMusic').play();
+}, { once: true });
